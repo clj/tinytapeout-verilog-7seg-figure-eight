@@ -11,22 +11,28 @@ module user_module_341063825089364563(
   assign clk = io_in[0];
   wire reset;
   assign reset = io_in[1];
+  wire [1:0] fn;
+  assign fn = {io_in[2], io_in[3]};
 
   reg [21:0] counter = 0; // XXX: What is the clk freq for TT?
+  //reg [21:0] counter_divider = 21'b10000000000000000000;
+  reg [21:0] counter_divider = 21'b00000001000000000000;
   reg [2:0] state = 3'b000;
   reg [7:0] led_out = 0;
 
   always @(posedge clk) begin
     if (reset) begin
         counter <= 0;
+        //counter_divider <= 21'b10000000000000000000;
         state <= 0;
         led_out <= 8'b00000000;
     end else begin
-      if (counter == 0) begin // overflow
+      if (counter == counter_divider) begin
+        counter <= 0;
         state <= state + 3'b001;
       end
-
-      counter <= counter + 1;
+      else
+        counter <= counter + 1;
     end
 
     case(state)
