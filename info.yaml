@@ -6,26 +6,26 @@
 #
 # This will be automatically collected and used to make a datasheet for the chip.
 project: 
-  author:       ""      # Your name
-  title:        ""      # Project title
+  author:       "Christian Lyder Jacobsen"      # Your name
+  title:        "7 Segment Figure Eight"      # Project title
   description:  ""      # Short description of what your project does
   how_it_works: ""      # Longer description of how the project works
   how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   external_hw:  ""      # Describe any external hardware needed
-  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  doc_link:     "https://github.com/clj/tinytapeout-verilog-7seg-figure-eight/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     0       # Clock frequency in Hz (if required)
-  language:     "wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  wokwi_id:     0       # the wokwi ID
-  picture:      ""      # relative path to a picture in your repository
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  wokwi_id:     341063825089364563       # the wokwi ID
+  picture:      "fig8.gif"      # relative path to a picture in your repository
   inputs:               # a description of what the inputs do
     - clock
     - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - speed lsb
+    - speed
+    - speed msb
+    - tail
+    - direction
+    - led invert
   outputs:
     - segment a         # a description of what the outputs do
     - segment b
